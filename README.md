@@ -9,3 +9,8 @@
 
 ## To start project
 Run `yarn start`
+
+## Main library documents
+- [Redux toolkit](https://redux-toolkit.js.org/tutorials/quick-start)
+- [AntD](https://ant.design/components/overview/)
+- [ky](https://github.com/sindresorhus/ky)
