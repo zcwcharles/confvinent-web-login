@@ -14,3 +14,4 @@ Run `yarn start`
 - [Redux toolkit](https://redux-toolkit.js.org/tutorials/quick-start)
 - [AntD](https://ant.design/components/overview/)
 - [ky](https://github.com/sindresorhus/ky)
+- [React route dom](https://reactrouter.com/en/main)
