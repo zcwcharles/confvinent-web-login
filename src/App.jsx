@@ -5,15 +5,15 @@ import './App.scss';
 
 function App() {
   const navigate = useNavigate();
-  const toLogin = () => {
-    navigate('/login');
+  const toSignin = () => {
+    navigate('/signin');
   };
 
   return (
     <div className="App">
       <header className="App-header">
         <h1>Home</h1>
-        <Button onClick={toLogin}>To login</Button>
+        <Button onClick={toSignin}>To signin</Button>
       </header>
     </div>
   );

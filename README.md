@@ -15,3 +15,4 @@ Run `yarn start`
 - [AntD](https://ant.design/components/overview/)
 - [ky](https://github.com/sindresorhus/ky)
 - [React route dom](https://reactrouter.com/en/main)
+- [Lodash](https://lodash.com/docs/4.17.15)
