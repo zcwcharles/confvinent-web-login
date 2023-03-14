@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import SignIn from './modules/signin/SignIn';
+import SignUp from './modules/signup/SignUp';
 
 const Router = () => {
   return (
@@ -15,6 +16,8 @@ const Router = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<SignIn />} />
+          <Route path='/signup' element={<SignUp />} />
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

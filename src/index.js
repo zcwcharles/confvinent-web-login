@@ -12,7 +12,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router />
+      <div className='main-page'>
+        <Router />
+      </div>
     </Provider>
   </React.StrictMode>
 );

@@ -1,6 +1,10 @@
 $bg-color: #8EA7E9;
 $primary-color: #7286D3;
 
-.space_between {
+.space-between {
   justify-content: space-between;
+}
+
+.fill-parent {
+  width: 100%;
 }

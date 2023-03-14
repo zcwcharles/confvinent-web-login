@@ -1,6 +1,6 @@
 @import '../../common.scss';
 
-.signin {
+.signup {
   &_card {
     width: 400px;
   }
@@ -9,6 +9,10 @@
     font-size: 18px;
     font-weight: 600;
     text-align: center;
+  }
+
+  &_btn {
+    width: 100%;
   }
 
   &_link-btn {

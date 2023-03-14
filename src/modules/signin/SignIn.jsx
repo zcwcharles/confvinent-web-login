@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Button, Space, Input, Checkbox } from 'antd';
 import {
   emailChange,
@@ -17,8 +18,8 @@ const SignIn = () => {
     emailValid,
     passwordValid,
   } = useSelector(stateSelector);
-
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSignIn = () => {
     dispatch(signInThunk());
@@ -32,33 +33,35 @@ const SignIn = () => {
     dispatch(passwordChange(e.target.value));
   }
 
+  const toSignUp = () => {
+    navigate('/signup')
+  };
+
   return (
-    <div className="signin_page">
-      <Container className="signin_card">
-        <Space className="signin_space" direction="vertical" size={20}>
-          <div className="signin_title">Sign In</div>
-          <Input
-            onChange={onEmailChagne}
-            onBlur={onEmailChagne}
-            placeholder="Email"
-            status={emailValid ? '': 'error'}
-          />
-          <Input
-            onChange={onPasswordChange}
-            onBlur={onPasswordChange}
-            placeholder='Password'
-            type="password"
-            status={passwordValid ? '': 'error'}
-          />
-          <Checkbox onChange={rememberMeChange}>Remember me</Checkbox>
-          <Button loading={signingIn} className="signin_btn" type="primary" onClick={onSignIn}>SIGN IN</Button>
-          <Space className="signin_space space_between">
-            <Button className="signin_link-btn" type="link">Forgot Password?</Button>
-            <Button className="signin_link-btn" type="link">Create Account</Button>
-          </Space>
+    <Container className="signin_card">
+      <Space className="fill-parent" direction="vertical" size={20}>
+        <div className="signin_title">Sign In</div>
+        <Input
+          onChange={onEmailChagne}
+          onBlur={onEmailChagne}
+          placeholder="Email"
+          status={emailValid ? '': 'error'}
+        />
+        <Input
+          onChange={onPasswordChange}
+          onBlur={onPasswordChange}
+          placeholder='Password'
+          type="password"
+          status={passwordValid ? '': 'error'}
+        />
+        <Checkbox onChange={rememberMeChange}>Remember me</Checkbox>
+        <Button loading={signingIn} className="fill-parent" type="primary" onClick={onSignIn}>SIGN IN</Button>
+        <Space className="fill-parent space-between">
+          <Button className="signin_link-btn" type="link">Forgot Password?</Button>
+          <Button className="signin_link-btn" type="link" onClick={toSignUp}>Create Account</Button>
         </Space>
-      </Container>
-    </div>
+      </Space>
+    </Container>
   );
 };
 
