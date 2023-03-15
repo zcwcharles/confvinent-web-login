@@ -13,7 +13,7 @@ const Router = () => {
         },
       }}
     >
-      <BrowserRouter>
+      <BrowserRouter basename="/">
         <Routes>
           <Route path='/' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
