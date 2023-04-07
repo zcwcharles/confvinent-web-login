@@ -3,13 +3,6 @@ import { message } from 'antd';
 import { signUpPost } from './signUpAPI';
 
 const initialState = {
-  firstName: '',
-  lastName: '',
-  email: '',
-  organization: '',
-  address: '',
-  password: '',
-  reEnterPassword: '',
   uiState: {
     signingUp: false,
   },
@@ -17,25 +10,24 @@ const initialState = {
 
 export const signUpThunk = createAsyncThunk(
   'signUpPost',
-  async (_, { getState })=> {
+  async (payload)=> {
     const {
-      signup: {
-        firstName,
-        lastName,
-        email,
-        organization,
-        address,
-        password,
-      },
-    } = getState();
+      address,
+      email,
+      firstName,
+      lastName,
+      organization,
+      password,
+    } = payload;
 
     try {
+
       const resp = await signUpPost({
+        address,
+        email,
         firstName,
         lastName,
-        email,
         organization,
-        address,
         password,
       });
       return resp;
@@ -49,29 +41,6 @@ export const signUpThunk = createAsyncThunk(
 const signUpSlice = createSlice({
   name: 'signup',
   initialState,
-  reducers: {
-    firstNameChange: (state, action) => {
-      state.firstName = action.payload;
-    },
-    lastNameChange: (state, action) => {
-      state.lastName = action.payload;
-    },
-    emailChange: (state, action) => {
-      state.email = action.payload;
-    },
-    organizationChange: (state, action) => {
-      state.organization = action.payload;
-    },
-    addressChange: (state, action) => {
-      state.address = action.payload;
-    },
-    passwordChange: (state, action) => {
-      state.password = action.payload;
-    },
-    reEnterPasswordChange: (steate, action) => {
-      steate.reEnterPassword = action.payload;
-    },
-  },
   extraReducers: builder => {
     builder
       .addCase(signUpThunk.pending, state => {
@@ -85,15 +54,5 @@ const signUpSlice = createSlice({
       })
   }
 });
-
-export const {
-  firstNameChange,
-  lastNameChange,
-  emailChange,
-  organizationChange,
-  addressChange,
-  passwordChange,
-  reEnterPasswordChange,
-} = signUpSlice.actions;
 
 export default signUpSlice.reducer;

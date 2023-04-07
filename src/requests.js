@@ -1,6 +1,7 @@
 import ky from "ky";
 
-const send = async (url, options) => {
+const send = async (endpoint, options) => {
+  const url = `http://${process.env.REACT_APP_API_DOMAIN}${endpoint}`;
   try {
     const resp = await ky(url, options);
     if (resp.redirected) {
@@ -12,9 +13,9 @@ const send = async (url, options) => {
   }
 };
 
-export const get = async (url) => {
+export const get = async (endpoint) => {
   try {
-    const resp = await send(url, { method: 'get' });
+    const resp = await send(endpoint, { method: 'get' });
     const respBody = await resp.json();
     return respBody;
   } catch(err) {
@@ -22,9 +23,9 @@ export const get = async (url) => {
   }
 };
 
-export const post = async (url, body) => {
+export const post = async (endpoint, body) => {
   try {
-    const resp = await send(url, {
+    const resp = await send(endpoint, {
       method: 'post',
       body: JSON.stringify(body),
       headers: {
