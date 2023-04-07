@@ -6,7 +6,6 @@ import { signInPost } from './sigInAPI';
 const initialState = {
   email: '',
   password: '',
-  rememberMe: false,
   uiState: {
     signingIn: false,
     emailValid: true,
@@ -55,9 +54,6 @@ const signInSlice = createSlice({
     passwordChange: (state, action) => {
       state.password = action.payload;
       state.uiState.passwordValid = !_isEmpty(action.payload);
-    },
-    rememberMeChange: (state, action) => {
-      state.rememberMe = action.payload;
     }
   },
   extraReducers: (builder) => {
@@ -79,7 +75,7 @@ const signInSlice = createSlice({
   }
 });
 
-export const { emailChange, passwordChange, rememberMeChange } = signInSlice.actions;
+export const { emailChange, passwordChange } = signInSlice.actions;
 
 export const stateSelector = state => {
   const {

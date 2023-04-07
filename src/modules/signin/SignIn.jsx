@@ -1,11 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Button, Space, Input, Checkbox } from 'antd';
+import { Button, Space, Input } from 'antd';
 import {
   emailChange,
   passwordChange,
-  rememberMeChange,
   signInThunk,
   stateSelector,
 } from './signInSlice';
@@ -54,7 +53,6 @@ const SignIn = () => {
           type="password"
           status={passwordValid ? '': 'error'}
         />
-        <Checkbox onChange={rememberMeChange}>Remember me</Checkbox>
         <Button loading={signingIn} className="fill-parent" type="primary" onClick={onSignIn}>SIGN IN</Button>
         <Space className="fill-parent space-between">
           <Button className="signin_link-btn" type="link">Forgot Password?</Button>
