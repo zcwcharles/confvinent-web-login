@@ -52,6 +52,7 @@ const SignIn = () => {
           placeholder='Password'
           type="password"
           status={passwordValid ? '': 'error'}
+          onPressEnter={onSignIn}
         />
         <Button loading={signingIn} className="fill-parent" type="primary" onClick={onSignIn}>SIGN IN</Button>
         <Space className="fill-parent space-between">
