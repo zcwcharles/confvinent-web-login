@@ -56,7 +56,7 @@ const SignIn = () => {
         />
         <Button loading={signingIn} className="fill-parent" type="primary" onClick={onSignIn}>SIGN IN</Button>
         <Space className="fill-parent space-between">
-          <Button className="signin_link-btn" type="link" onClick={toForgotpassword}>Forgot Password?</Button>
+          {/* <Button className="signin_link-btn" type="link">Forgot Password?</Button> */}
           <Button className="signin_link-btn" type="link" onClick={toSignUp}>Create Account</Button>
         </Space>
       </Space>
